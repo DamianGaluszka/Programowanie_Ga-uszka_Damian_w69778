@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Zrównoważony Rozwój</h1>
+        <ul>
+          <a href="index.html">Strona główna</a>
+          <a href="strona2.html">Obszary Zrównoważonego Rozwoju</a>
+          <a href="strona3.html">Przykłady Strategii</a>
+          <a href="strona4.html">Kontakt</a>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="team">
+        <h2>Nasz Zespół</h2>
+        <div class="employee">
+          <img src="images/prezes.jpg" width="200" height="200" />
+          <h3>Bartosz Walaszek - Prezes</h3>
+          <p>
+            Bartosz Walaszek jest prezesem firmy z wieloletnim doświadczeniem w
+            branży zrównoważonego rozwoju. Odpowiada za strategię i rozwój
+            naszej organizacji.
+          </p>
+        </div>
+        <div class="employee">
+          <img src="images/kierownik1.jpg" width="200" height="200" />
+          <h3>Anna Kowalska - Kierownik ds. Operacyjnych</h3>
+          <p>
+            Anna Kowalska nadzoruje codzienne operacje firmy, dbając o to, aby
+            nasze strategie były skutecznie wdrażane.
+          </p>
+        </div>
+        <div class="employee">
+          <img src="images/kierownik2.jpg" width="200" height="200" />
+          <h3>Tytus Bomba - Kierownik ds. Zrównoważonego Rozwoju</h3>
+          <p>
+            Tytus Bomba koordynuje projekty związane ze zrównoważonym rozwojem,
+            dbając o zgodność działań firmy z najlepszymi praktykami.
+          </p>
+        </div>
+      </section>
+
+      <section id="location">
+        <h2>Nasza Lokalizacja</h2>
+        <p>
+          Znajdujemy się w centrum miasta. Zapraszamy do odwiedzenia naszej
+          siedziby!
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.5996775717163!2d22.00078797703985!3d50.03759667151626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473cfb91c7ecf4c9%3A0xb60d9a8b36916f19!2sRobotniczy%20Klub%20Sportowy%20HUWDU!5e0!3m2!1spl!2spl!4v1728859388828!5m2!1spl!2spl"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+
+      <section id="contact-info">
+        <h2>Dane Kontaktowe</h2>
+        <p>Adres: Tadeusza Kościuszki 6/8, 35-030 Rzeszów</p>
+        <p>Telefon: +48 123 456 789</p>
+        <p>Email: kontakt@zrownowazonyrozwoj.pl</p>
+      </section>
+
+      <section id="contact-form">
+        <h2>Formularz Kontaktowy</h2>
+        <form action="submit_form.php" method="post">
+          <label for="name">Imię:</label>
+          <input type="text" id="name" name="name" required /><br /><br />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required /><br /><br />
+
+          <label for="phone">Telefon:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{9}"
+            required
+          /><br /><br />
+
+          <label for="message">Treść:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            cols="50"
+            required
+          ></textarea
+          ><br /><br />
+
+          <input type="submit" value="Wyślij" />
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <a href="index.html">Strona główna</a>
+          <a href="strona2.html">Obszary Zrównoważonego Rozwoju</a>
+          <a href="strona3.html">Przykłady Strategii</a>
+          <a href="strona4.html">Kontakt</a>
+        </ul>
+      </nav>
+      <p>Autor: Damian Gałuszka</p>
+      <p>Data rozpoczęcia pracy: 13.10.2024</p>
+    </footer>
+  </body>
+</html>
