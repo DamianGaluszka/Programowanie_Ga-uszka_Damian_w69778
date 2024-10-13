@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zapytania</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Zrównoważony Rozwój</h1>
+        <ul>
+          <a href="index.html">Strona główna</a>
+          <a href="strona2.html">Obszary Zrównoważonego Rozwoju</a>
+          <a href="strona3.html">Przykłady Strategii</a>
+          <a href="strona4.html">Kontakt</a>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Otrzymane Zapytania</h2>
+      <table id="queriesTable">
+        <thead>
+          <tr>
+            <th>Imię</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Treść Zapytania</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <a href="index.html">Strona główna</a>
+          <a href="strona2.html">Obszary Zrównoważonego Rozwoju</a>
+          <a href="strona3.html">Przykłady Strategii</a>
+          <a href="strona4.html">Kontakt</a>
+        </ul>
+      </nav>
+      <p>Autor: Damian Gałuszka</p>
+      <p>Data rozpoczęcia pracy: 13.10.2024</p>
+    </footer>
+
+    <script>
+      // Funkcja do dodawania zapytania do tabeli
+      function addQueryToTable(name, email, phone, message) {
+        const tableBody = document.querySelector("#queriesTable tbody");
+        const newRow = document.createElement("tr");
+
+        newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${message}</td>
+            `;
+
+        tableBody.appendChild(newRow);
+      }
+
+      // Pobieranie zapytań z localStorage i wyświetlanie ich
+      window.onload = function () {
+        const queries = JSON.parse(localStorage.getItem("queries")) || [];
+        queries.forEach((query) => {
+          addQueryToTable(query.name, query.email, query.phone, query.message);
+        });
+      };
+    </script>
+  </body>
+</html>

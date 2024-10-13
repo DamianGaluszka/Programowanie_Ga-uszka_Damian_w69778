@@ -72,36 +72,21 @@
         <p>Email: kontakt@zrownowazonyrozwoj.pl</p>
       </section>
 
-      <section id="contact-form">
-        <h2>Formularz Kontaktowy</h2>
-        <form action="submit_form.php" method="post">
-          <label for="name">Imię:</label>
-          <input type="text" id="name" name="name" required /><br /><br />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required /><br /><br />
-
-          <label for="phone">Telefon:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            pattern="[0-9]{9}"
-            required
-          /><br /><br />
-
-          <label for="message">Treść:</label>
+      <section id="contact">
+        <h2>Kontakt z Nami</h2>
+        <p>Wypełnij formularz, a skontaktujemy się z Tobą jak najszybciej.</p>
+        <form id="contactForm" onsubmit="return validateForm()">
+          <input type="text" id="name" placeholder="Imię" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="tel" id="phone" placeholder="Telefon" required />
           <textarea
             id="message"
-            name="message"
-            rows="4"
-            cols="50"
+            placeholder="Treść zapytania"
             required
-          ></textarea
-          ><br /><br />
-
-          <input type="submit" value="Wyślij" />
+          ></textarea>
+          <button type="submit">Wyślij</button>
         </form>
+        <div id="formResponse"></div>
       </section>
     </main>
 
@@ -117,5 +102,36 @@
       <p>Autor: Damian Gałuszka</p>
       <p>Data rozpoczęcia pracy: 13.10.2024</p>
     </footer>
+
+    <script>
+      function validateForm() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const message = document.getElementById("message").value;
+        const responseDiv = document.getElementById("formResponse");
+
+        // Prosta walidacja
+        if (!name || !email || !phone || !message) {
+          responseDiv.innerHTML = "Wszystkie pola są wymagane!";
+          responseDiv.style.color = "red";
+          return false;
+        }
+
+        // Zapisywanie zapytania w localStorage
+        const queries = JSON.parse(localStorage.getItem("queries")) || [];
+        queries.push({ name, email, phone, message });
+        localStorage.setItem("queries", JSON.stringify(queries));
+
+        // Wyświetlenie wiadomości po pomyślnym wysłaniu
+        responseDiv.innerHTML =
+          "Dziękujemy za Twoje zapytanie! Skontaktujemy się z Tobą wkrótce.";
+        responseDiv.style.color = "green";
+
+        // Resetowanie formularza
+        document.getElementById("contactForm").reset();
+        return false; // Zatrzymuje wysłanie formularza
+      }
+    </script>
   </body>
 </html>
